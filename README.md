@@ -1,1 +1,1 @@
-Laravel Shopping Cart Under Development
+Laravel Shopping Cart - Under Development
