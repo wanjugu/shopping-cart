@@ -21,3 +21,14 @@ Route::get('/',[
     'uses'=>'App\Http\Controllers\ProductController@getIndex',
     'as' => 'product.index'
 ]);
+
+Route::get('/signup',[
+    'uses'=>'App\Http\Controllers\UserController@getSignup',
+    'as' => 'user.signup'
+]);
+
+Route::post('/signup',[
+    'uses'=>'App\Http\Controllers\UserController@postSignup',
+    'as' => 'user.signup'
+]);
+
