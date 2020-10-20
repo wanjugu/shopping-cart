@@ -1,3 +1,9 @@
+/*.navbar{*/
+    /*background: rgba(250,255,2,1) !important;*/
+    /*color: floralwhite !important;*/
+/*}*/
+
+body { padding-top: 70px; }
 .thumbnail img{
    max-height: 150px;
     min-width: 150px;

@@ -1,4 +1,4 @@
-<nav class="navbar navbar-default">
+<nav class="navbar navbar-fixed-top navbar-default">
     <div class="container-fluid">
         <!-- Brand and toggle get grouped for better mobile display -->
         <div class="navbar-header">
@@ -8,22 +8,34 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="{{ route('product.index') }}">Brand</a>
+            <a class="navbar-brand" href="{{ route('product.index') }}">
+                <i class="fa fa-linux" aria-hidden="true"></i> Grosbeak</a>
         </div>
 
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav navbar-right">
-                <li><a href="#"><i class="fas fa-shopping-cart"></i> Shopping Cart</a></li>
+                <li>
+                    <a href="{{ route('product.shoppingCart') }}"><i class="fas fa-shopping-cart"></i> Shopping Cart
+                        <span class="badge">
+                            {{ Session::has('cart') ? Session::get('cart')->totalQty : '' }}
+                        </span>
+                    </a>
+                </li>
                 <li class="dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
                         <i class="far fa-user"></i> User Account<span class="caret"></span></a>
                     <ul class="dropdown-menu">
-                        <li><a href="{{ route('user.signup') }}"><i class="fas fa-user-circle"></i> Signup</a></li>
-                        <li><a href="#"><i class="fas fa-user-circle"></i> Profile</a></li>
-                        <li role="separator" class="divider"></li>
-                        <li><a href="#"><i class="fas fa-power-off"></i> Logout</a></li>
-                    </ul>
+                        @if(Auth::check())
+                            <li><a href="{{ route('user.profile') }}"><i class="fas fa-user-circle"></i> Profile</a></li>
+                            <li role="separator" class="divider"></li>
+                            <li><a href="{{ route('user.logout') }}"><i class="fas fa-power-off"></i> Logout</a></li>
+
+                        @else
+                            <li><a href="{{ route('user.signup') }}"><i class="fas fa-user-circle"></i> Register</a></li>
+                            <li><a href="{{ route('user.signin') }}"><i class="fas fa-user-circle"></i> Sign In</a></li>
+                        @endif
+                       </ul>
                 </li>
             </ul>
         </div><!-- /.navbar-collapse -->

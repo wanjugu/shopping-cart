@@ -18,7 +18,7 @@
                             <p class="description">{{ $product->description }}</p>
                             <div class="clearfix">
                                 <div class="price pull-left">${{ $product->price }}</div>
-                                <a href="#" class="btn btn-success pull-right" role="button"><i class="fas fa-cart-plus"></i> Add to cart</a>
+                                <a href="{{ route('product.addtocart',['id'=>$product->id]) }}" class="btn btn-success pull-right" role="button"><i class="fas fa-cart-plus"></i> Add to cart</a>
                             </div>
                         </div>
                     </div>
